@@ -29,9 +29,14 @@ module Light
       def chat(model:, messages:, temperature: 1, response_format: nil)
         payload = {
           model: model,
-          temperature: temperature,
           messages: messages
         }
+        
+        # GPT-5 models don't support temperature parameter
+        unless model.to_s.start_with?('gpt-5')
+          payload[:temperature] = temperature
+        end
+        
         payload[:response_format] = response_format if response_format
 
         request(payload: payload, allow_fallback: !response_format.nil?)

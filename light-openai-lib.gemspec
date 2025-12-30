@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
   spec.metadata["changelog_uri"] = spec.homepage
+  spec.metadata["bug_tracker_uri"] = "https://github.com/gaetanjuvin/light-openai-lib/issues"
 
   spec.files = Dir.chdir(__dir__) do
     Dir[
@@ -30,11 +31,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "httparty", ">= 0.18", "< 0.23"
-  spec.add_dependency "base64"
-  spec.add_dependency "csv"
+  spec.add_dependency "base64", ">= 0.2", "< 1.0"
+  spec.add_dependency "csv", ">= 3.0", "< 5.0"
 
-  spec.add_development_dependency "rake", ">= 13.0"
-  spec.add_development_dependency "minitest", ">= 5.0"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "minitest", "~> 5.0"
 
-  spec.metadata["rubygems_mfa_required"] = "true"
 end
